@@ -1,0 +1,33 @@
+
+<div class="vertical_bar">
+    <div class="profile_info">
+        <div class="img_holder">
+            <img src="..//public/img/profile.png" alt="profile_pic">
+        </div>
+        <p class="title">{{token.name}}</p>
+        <p class="sub_title">{{token.email}}</p>
+    </div>
+    <ul class="menu">
+        <li><a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                <span>Accueil
+                </span>
+            </a></li>
+        <li><a routerLink="/encaissement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <span class="icon">
+                    <i class="fas fa-file-alt"></i>
+                </span>
+                <span>Encaissement</span>
+            </a></li>
+        <li><a  routerLink="/decaissement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <span class="icon">
+                    <i class="fas fa-chart-pie"></i>
+                </span>
+                <span>Decaissement</span>
+            </a></li>
+<a *ngIf="token" type="button" (click)="logOut()"><img style="margin-top: 100px;margin-left: 80px;" src="..//public/img/logout2.png" alt=""></a>
+    </ul>
+
+</div>

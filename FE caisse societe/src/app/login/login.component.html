@@ -1,0 +1,78 @@
+<div class="wrapper">
+	<div class="wrapper_inner">
+		<div class="vertical_wrap">
+            <div class="vertical_bar">
+
+            </div>
+		</div>
+		<div class="main_container">
+			<div class="top_bar">
+				<div class="hamburger">
+					<i class="fas fa-bars"></i>
+				</div>
+				<div class="logo">
+					Login
+				</div>
+			</div>
+			<div class="content">
+                <div class="section">
+                    <div class="container">
+                        <div class="container">
+                            <!--Data or Content-->
+                            <div class="box-1">
+                                <div class="content-holder">
+                                    <h2>Hello!</h2>
+                                   
+                                    <button class="button-1" onclick="signup()">Sign up</button>
+                                    <button class="button-2" onclick="login()">Login</button>
+                                </div>
+                            </div>
+                      
+                            
+                            <!--Forms-->
+                            <div class="box-2">
+                                <div class="login-form-container">
+                                    <h1>Login</h1>
+                                    <input type="text" placeholder="email" [(ngModel)]="users.email" [ngModelOptions]="{standalone: true}" class="input-field">
+                                    <br><br>
+                                    <input type="password" placeholder="Password" [(ngModel)]="users.password" [ngModelOptions]="{standalone: true}" class="input-field">
+                                    <br><br>
+                                    <button class="login-button" type="button" (click)="login()">Login</button>
+                                </div>
+                      
+                      
+                      <!--Create Container for Signup form-->
+                            <div class="signup-form-container" [formGroup]="loginForm">
+                                <h1 style="margin-top: 10px;">Sign Up</h1>
+                                <input type="text" placeholder="Username*" formControlName="name" class="input-field">
+                                <div *ngIf="loginForm.controls['name'].invalid && (loginForm.controls['name'].dirty || loginForm.controls['name'].touched)">
+                                    <div *ngIf="loginForm.controls['name'].errors?.['required']" style="color: red; margin-top: 5px;">name is empty</div>
+                                  </div>
+                                <br><br>
+                                <input type="email" placeholder="Email*" formControlName="email" class="input-field">
+                                <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
+                                    <div *ngIf="loginForm.controls['email'].errors?.['required']" style="color: red; margin-top: 5px;">email is empty</div>
+                                  </div>
+                                <br><br>
+                                <input type="password" placeholder="Password*" formControlName="password" class="input-field">
+                                <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+                                    <div *ngIf="loginForm.controls['password'].errors?.['required']" style="color: red; margin-top: 5px;">password is empty</div>
+                                  </div>
+                                <br><br>
+                                <input type="password" placeholder="Code*" formControlName="code" class="input-field">
+                                <div *ngIf="loginForm.controls['code'].invalid && (loginForm.controls['code'].dirty || loginForm.controls['code'].touched)">
+                                    <div *ngIf="loginForm.controls['code'].errors?.['required']" style="color: red; margin-top: 5px;">code is empty</div>
+                                  </div>
+                                <br><br>
+                                <button class="signup-button" type="button" (click)="signup(loginForm.value)">Sign Up</button>
+                            </div>
+                      
+                      
+                      
+                            </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>

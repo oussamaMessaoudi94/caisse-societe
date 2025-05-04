@@ -1,0 +1,238 @@
+<div class="wrapper">
+	<div class="wrapper_inner">
+		<div class="vertical_wrap">
+<app-navbar></app-navbar>
+		</div>
+		<div class="main_container">
+			<div class="top_bar">
+				<div class="hamburger">
+					<i class="fas fa-bars"></i>
+				</div>
+				<div class="logo">
+					Decaissement
+				</div>
+			</div>
+			<div class="content">
+                <div class="container mt-4">  
+                    <div   >
+          
+            
+                        <!-- Modal -->
+                        <div  class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header" >
+                                  <h5 class="modal-title" id="myModalLabel">Ajouter encaissement</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                    <div *ngIf="findedId"  class="modal-body">
+                                        <form  class="form" [formGroup]="decaisseForm" (ngSubmit)="decaisse(decaisseForm.value)">
+                                            <!-- Row 1 -->
+                                            <div class="form-row">
+                                              <div class="form-group">
+                                                <label class="label">Date</label>
+                                                <input class="text-input" type="date" formControlName="date" required />
+                                                <div *ngIf="decaisseForm.controls['date'].invalid && (decaisseForm.controls['date'].dirty || decaisseForm.controls['date'].touched)">
+                                                  <div *ngIf="decaisseForm.controls['date'].errors?.['required']" style="color: red; margin-top: 5px;">date is empty</div>
+                                                </div>
+                                              </div>
+                                          
+                                              <div class="form-group">
+                                                <label class="label">BENEFICIER</label>
+                                                <input class="text-input" type="text" formControlName="beneficier" placeholder="BENEFICIER" required />
+                                                <div *ngIf="decaisseForm.controls['beneficier'].invalid && (decaisseForm.controls['beneficier'].dirty || decaisseForm.controls['beneficier'].touched)">
+                                                  <div *ngIf="decaisseForm.controls['beneficier'].errors?.['required']" style="color: red;margin-top: 5px;">beneficier is empty</div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          
+                                            <!-- Row 2 -->
+                                            <div class="form-row">
+                                              <div class="form-group">
+                                                <label class="label">MODALITE DE REGLEMENT</label>
+                                                <select class="text-input" formControlName="modalite" required>
+                                                  <option selected disabled>--------</option>
+                                                  <option value="Espace">Espece</option>
+                                                  <option value="Cheque">Cheque</option>
+                                                  <option value="Virement">Virement</option>
+                                                  <option value="Versement">Versement</option>
+                                                </select>
+                                                <div *ngIf="decaisseForm.controls['modalite'].invalid && (decaisseForm.controls['modalite'].dirty || decaisseForm.controls['modalite'].touched)">
+                                                  <div *ngIf="decaisseForm.controls['modalite'].errors?.['required']" style="color: red;margin-top: 5px;">modalite is empty</div>
+                                                </div>
+                                              </div>
+                                          
+                                              <div class="form-group">
+                                                <label class="label">NUMERO CHEQUE / REFERENCE</label>
+                                                <input class="text-input" type="text" formControlName="Ncheque" placeholder="NUMERO CHEQUE / REFERENCE" required />
+                                                <div *ngIf="decaisseForm.controls['Ncheque'].invalid && (decaisseForm.controls['Ncheque'].dirty || decaisseForm.controls['Ncheque'].touched)">
+                                                  <div *ngIf="decaisseForm.controls['Ncheque'].errors?.['required']" style="color: red;margin-top: 5px;">Ncheque is empty</div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          
+                                            <!-- Row 3 -->
+                                            <div class="form-row">
+                                              <div class="form-group">
+                                                <label class="label">BANK</label>
+                                                <select class="text-input" formControlName="bank" required>
+                                                  <option value="Attijari">ATTIJARI</option>
+                                                  <option value="BIAT">BIAT</option>
+                                                  <option value="UBCI">UBCI</option>
+                                                  <option value="ATB">ATB</option>
+                                                  <option value="UIB">UIB</option>
+                                                  <option value="BNA">BNA</option>
+                                                  <option value="BTK">BTK</option>
+                                                  <option value="AMEN BANK">AMEN BANK</option>
+                                                  <option value="BH">BH</option>
+                                                  <option value="BTL">BTL</option>
+                                                  <option value="BTE">BTE</option>
+                                                  <option value="ZITOUNA">ZITOUNA</option>
+                                                  <option value="STUSID">STUSID</option>
+                                                  <option value="STB">STB</option>
+                                                  <option value="QNB">QNB</option>
+                                                  <option value="NFI">NFI</option>
+                                                  <option value="POSTE">POSTE</option>
+                                                </select>
+                                                <div *ngIf="decaisseForm.controls['bank'].invalid && (decaisseForm.controls['bank'].dirty || decaisseForm.controls['bank'].touched)">
+                                                  <div *ngIf="decaisseForm.controls['bank'].errors?.['required']" style="color: red;margin-top: 5px;">bank is empty</div>
+                                                </div>
+                                              </div>
+                                          
+                                              <div class="form-group">
+                                                <label class="label">NO. COMPTE</label>
+                                                <input class="text-input" type="text" formControlName="Ncompte" placeholder="NO. COMPTE" required />
+                                                <div *ngIf="decaisseForm.controls['Ncompte'].invalid && (decaisseForm.controls['Ncompte'].dirty || decaisseForm.controls['Ncompte'].touched)">
+                                                  <div *ngIf="decaisseForm.controls['Ncompte'].errors?.['required']" style="color: red;margin-top: 5px;">Ncompte is empty</div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          
+                                            <!-- Row 4 -->
+                                            <div class="form-row">
+                                              <div class="form-group">
+                                                <label class="label">CAISSE</label>
+                                                <select class="text-input" formControlName="caisse" required>
+                                                  <option value="caisse 1">Caisse 1</option>
+                                                  <option value="caisse 2" selected>Caisse 2</option>
+                                                </select>
+                                                <div *ngIf="decaisseForm.controls['caisse'].invalid && (decaisseForm.controls['caisse'].dirty || decaisseForm.controls['caisse'].touched)">
+                                                  <div *ngIf="decaisseForm.controls['caisse'].errors?.['required']" style="color: red;margin-top: 5px;">caisse is empty</div>
+                                                </div>
+                                              </div>
+                                          
+                                              <div class="form-group">
+                                                <label class="label">Année</label>
+                                                <input class="text-input" type="month" formControlName="annee" required />
+                                                <div *ngIf="decaisseForm.controls['annee'].invalid && (decaisseForm.controls['annee'].dirty || decaisseForm.controls['annee'].touched)">
+                                                  <div *ngIf="decaisseForm.controls['annee'].errors?.['required']" style="color: red;margin-top: 5px;">annee is empty</div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          
+                                            <!-- Row 5 -->
+                                            <div class="form-row">
+                                              <div class="form-group">
+                                                <label class="label">MONTANT</label>
+                                                <input class="text-input" type="number" formControlName="montant" placeholder="MONTANT" required />
+                                                <div *ngIf="decaisseForm.controls['montant'].invalid && (decaisseForm.controls['montant'].dirty || decaisseForm.controls['montant'].touched)">
+                                                  <div *ngIf="decaisseForm.controls['montant'].errors?.['required']" style="color: red;margin-top: 5px;">montant is empty</div>
+                                                </div>
+                                              </div>
+                                          
+                                              <div class="form-group">
+                                                <label class="label">OBJET DE REGLEMENT</label>
+                                                <input class="text-input" type="text" formControlName="objet" placeholder="OBJET DE REGLEMENT" required />
+                                                <div *ngIf="decaisseForm.controls['objet'].invalid && (decaisseForm.controls['objet'].dirty || decaisseForm.controls['objet'].touched)">
+                                                  <div *ngIf="decaisseForm.controls['objet'].errors?.['required']" style="color: red;margin-top: 5px;">objet is empty</div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          
+                                            <!-- Row 6 -->
+                                            <div class="form-row">
+                                              <div class="form-group" style="flex: 1;">
+                                                <label class="label">OBSERVATION</label>
+                                                <input class="text-input" type="text" formControlName="observation" placeholder="OBSERVATION" required />
+                                              </div>
+                                            </div>
+                                          
+                                            <!-- Buttons -->
+                                            <div class="modal-footer" style="margin-left: 50%;">
+                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                              <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                            </div>
+                                          </form>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+            
+                      </div>     
+                      <div class="row align-items-end g-2 mb-3">
+                        <div class="col-md-4">
+                          <label for="dateInput" class="form-label">Date</label>
+                          <input type="date" id="dateInput" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                          <label for="caisseSelect" class="form-label">Caisse</label>
+                          <select id="caisseSelect" class="form-select">
+                            <option value="">All</option>
+                            <option value="caisse 1">Caisse1</option>
+                            <option value="caisse 2">Caisse2</option>
+                          </select>
+                        </div>
+                        <div class="col-md-4">
+                          <button (click)="filterTable()" class="btn btn-primary w-100 mt-4">Search</button>
+                        </div>
+                      </div>
+                    <table id="dataTable" class="table table-striped table-bordered" aria-describedby="dataTableDescription">
+                      <caption id="dataTableDescription" class="visually-hidden">This is a table of participants with their roles, status, and other details.</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col" class="sortable" aria-sort="none" role="columnheader" tabindex="0">N°</th>
+                          <th scope="col" class="sortable" aria-sort="none" role="columnheader" tabindex="0">Date</th>
+                          <th scope="col" class="sortable" aria-sort="none" role="columnheader" tabindex="0">Bénéficer</th>
+                          <th scope="col" class="sortable" aria-sort="none" role="columnheader" tabindex="0">Montant</th>
+                          <th scope="col" class="sortable"  aria-sort="none" role="columnheader" tabindex="0"> Modalité</th>
+                          <th scope="col" class="sortable"  aria-sort="none" role="columnheader" tabindex="0">N° (chéque/Réf)</th>
+                          <th scope="col" class="sortable"  aria-sort="none" role="columnheader" tabindex="0"> N°Compte</th>
+                          <th scope="col" class="sortable"  aria-sort="none" role="columnheader" tabindex="0">Objet</th>
+                          <th scope="col"><img src="..//public/img/add-folder.png"  type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#myModal"
+                             style="height: 20px; margin-left: 30%;" alt=""></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let finded of filteredData | paginate:{itemsPerPage: 5, currentPage:p } let i=index">
+                            <td scope="col" class="sortable" aria-sort="none" role="columnheader" tabindex="0">{{ (p - 1) * 5 + i + 1 }}</td>
+                            <td scope="col" class="sortable" aria-sort="none" role="columnheader" tabindex="0">{{finded.date | date:'dd/MM/yyyy'}}</td>
+                            <td scope="col" class="sortable" aria-sort="none" role="columnheader" tabindex="0">{{finded.beneficier}}</td>
+                            <td scope="col" class="sortable"  aria-sort="none" role="columnheader" tabindex="0">{{finded.montant.toLocaleString('fr-FR')}}</td>
+                            <td scope="col" class="sortable"  aria-sort="none" role="columnheader" tabindex="0">{{finded.modalite}}</td>
+                            <td scope="col" class="sortable"  aria-sort="none" role="columnheader" tabindex="0">{{finded.Ncheque}}</td>
+                            <td scope="col" class="sortable"  aria-sort="none" role="columnheader" tabindex="0">{{finded.Ncompte}}</td>
+                            <td scope="col" class="sortable"  aria-sort="none" role="columnheader" tabindex="0">{{finded.objet}}</td>
+                            <td class="actions-container" style="margin-top: 0px;">
+                                <div class="dropdown" role="menu" aria-label="Actions for ${item.name}">
+                                  <button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Open actions menu for ${item.name}">...</button>
+                                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" (click)="editDecaisse(finded._id)"  >Edit</a></li>
+                                    <li><a class="dropdown-item" (click)="deleteDecaisse(finded._id)">Delete</a></li>
+                                    <li><a class="dropdown-item" href="#">Autre information</a></li>
+                                  </ul>
+                                </div>
+                              </td>
+                          </tr>
+                      </tbody>
+                    </table>
+                    <div id="pagination" style="text-align: center;">
+                      <pagination-controls (pageChange)="p=$event"></pagination-controls>
+                  </div>
+                  </div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,160 @@
+<div class="wrapper">
+	<div class="wrapper_inner">
+		<div class="vertical_wrap">
+<app-navbar></app-navbar>
+		</div>
+		<div class="main_container">
+			<div class="top_bar">
+				<div class="hamburger">
+					<i class="fas fa-bars"></i>
+				</div>
+				<div class="logo">
+					Edit Decaissement
+				</div>
+			</div>
+			<div class="content">
+                <div class="container mt-4">  
+                    <div   >
+<form  class="form" [formGroup]="decaisseForm" (ngSubmit)="decaisse(decaisseForm.value)">
+    <!-- Row 1 -->
+    <div class="form-row">
+      <div class="form-group">
+        <label class="label">Date</label>
+        <input class="text-input" type="date" formControlName="date" [(ngModel)]="findedId.date" required />
+        <div *ngIf="decaisseForm.controls['date'].invalid && (decaisseForm.controls['date'].dirty || decaisseForm.controls['date'].touched)">
+          <div *ngIf="decaisseForm.controls['date'].errors?.['required']" style="color: red; margin-top: 5px;">date is empty</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label class="label">BENEFICIER</label>
+        <input class="text-input" type="text" formControlName="beneficier" placeholder="BENEFICIER" [(ngModel)]="findedId.beneficier" required />
+        <div *ngIf="decaisseForm.controls['beneficier'].invalid && (decaisseForm.controls['beneficier'].dirty || decaisseForm.controls['beneficier'].touched)">
+          <div *ngIf="decaisseForm.controls['beneficier'].errors?.['required']" style="color: red;margin-top: 5px;">beneficier is empty</div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Row 2 -->
+    <div class="form-row">
+      <div class="form-group">
+        <label class="label">MODALITE DE REGLEMENT</label>
+        <select class="text-input" formControlName="modalite" [(ngModel)]="findedId.modalite" required>
+          <option selected disabled>--------</option>
+          <option value="Espace">Espece</option>
+          <option value="Cheque">Cheque</option>
+          <option value="Virement">Virement</option>
+          <option value="Versement">Versement</option>
+        </select>
+        <div *ngIf="decaisseForm.controls['modalite'].invalid && (decaisseForm.controls['modalite'].dirty || decaisseForm.controls['modalite'].touched)">
+          <div *ngIf="decaisseForm.controls['modalite'].errors?.['required']" style="color: red;margin-top: 5px;">modalite is empty</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label class="label">NUMERO CHEQUE / REF</label>
+        <input class="text-input" type="text" formControlName="Ncheque" placeholder="NUMERO CHEQUE / REFERENCE" [(ngModel)]="findedId.Ncheque" required />
+        <div *ngIf="decaisseForm.controls['Ncheque'].invalid && (decaisseForm.controls['Ncheque'].dirty || decaisseForm.controls['Ncheque'].touched)">
+          <div *ngIf="decaisseForm.controls['Ncheque'].errors?.['required']" style="color: red;margin-top: 5px;">Ncheque is empty</div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Row 3 -->
+    <div class="form-row">
+      <div class="form-group">
+        <label class="label">BANK</label>
+        <select class="text-input" formControlName="bank" [(ngModel)]="findedId.bank" required>
+          <option value="Attijari">ATTIJARI</option>
+          <option value="BIAT">BIAT</option>
+          <option value="UBCI">UBCI</option>
+          <option value="ATB">ATB</option>
+          <option value="UIB">UIB</option>
+          <option value="BNA">BNA</option>
+          <option value="BTK">BTK</option>
+          <option value="AMEN BANK">AMEN BANK</option>
+          <option value="BH">BH</option>
+          <option value="BTL">BTL</option>
+          <option value="BTE">BTE</option>
+          <option value="ZITOUNA">ZITOUNA</option>
+          <option value="STUSID">STUSID</option>
+          <option value="STB">STB</option>
+          <option value="QNB">QNB</option>
+          <option value="NFI">NFI</option>
+          <option value="POSTE">POSTE</option>
+        </select>
+        <div *ngIf="decaisseForm.controls['bank'].invalid && (decaisseForm.controls['bank'].dirty || decaisseForm.controls['bank'].touched)">
+          <div *ngIf="decaisseForm.controls['bank'].errors?.['required']" style="color: red;margin-top: 5px;">bank is empty</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label class="label">NO. COMPTE</label>
+        <input class="text-input" type="text" formControlName="Ncompte" placeholder="NO. COMPTE" [(ngModel)]="findedId.Ncompte" required />
+        <div *ngIf="decaisseForm.controls['Ncompte'].invalid && (decaisseForm.controls['Ncompte'].dirty || decaisseForm.controls['Ncompte'].touched)">
+          <div *ngIf="decaisseForm.controls['Ncompte'].errors?.['required']" style="color: red;margin-top: 5px;">Ncompte is empty</div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Row 4 -->
+    <div class="form-row">
+      <div class="form-group">
+        <label class="label">CAISSE</label>
+        <select class="text-input" formControlName="caisse" [(ngModel)]="findedId.caisse" required>
+          <option value="caisse 1">Caisse 1</option>
+          <option value="caisse 2" selected>Caisse 2</option>
+        </select>
+        <div *ngIf="decaisseForm.controls['caisse'].invalid && (decaisseForm.controls['caisse'].dirty || decaisseForm.controls['caisse'].touched)">
+          <div *ngIf="decaisseForm.controls['caisse'].errors?.['required']" style="color: red;margin-top: 5px;">caisse is empty</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label class="label">Année</label>
+        <input class="text-input" type="month" formControlName="annee" [(ngModel)]="findedId.annee" required />
+        <div *ngIf="decaisseForm.controls['annee'].invalid && (decaisseForm.controls['annee'].dirty || decaisseForm.controls['annee'].touched)">
+          <div *ngIf="decaisseForm.controls['annee'].errors?.['required']" style="color: red;margin-top: 5px;">annee is empty</div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Row 5 -->
+    <div class="form-row">
+      <div class="form-group">
+        <label class="label">MONTANT</label>
+        <input class="text-input" type="number" formControlName="montant" placeholder="MONTANT" [(ngModel)]="findedId.montant" required />
+        <div *ngIf="decaisseForm.controls['montant'].invalid && (decaisseForm.controls['montant'].dirty || decaisseForm.controls['montant'].touched)">
+          <div *ngIf="decaisseForm.controls['montant'].errors?.['required']" style="color: red;margin-top: 5px;">montant is empty</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label class="label">OBJET DE REGLEMENT</label>
+        <input class="text-input" type="text" formControlName="objet" placeholder="OBJET DE REGLEMENT" [(ngModel)]="findedId.objet" required />
+        <div *ngIf="decaisseForm.controls['objet'].invalid && (decaisseForm.controls['objet'].dirty || decaisseForm.controls['objet'].touched)">
+          <div *ngIf="decaisseForm.controls['objet'].errors?.['required']" style="color: red;margin-top: 5px;">objet is empty</div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Row 6 -->
+    <div class="form-row">
+      <div class="form-group" style="flex: 1;">
+        <label class="label">OBSERVATION</label>
+        <input class="text-input" type="text" formControlName="observation" placeholder="OBSERVATION" [(ngModel)]="findedId.observation" required />
+      </div>
+    </div>
+  
+    <!-- Buttons -->
+    <div class="modal-footer" style="margin-left: 50%;">
+      <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </div>
+  </form>
+
+</div>      
+</div>
+</div>
+</div>
+</div>
+</div>
