@@ -6,6 +6,7 @@ import { DecaissementComponent } from './decaissement/decaissement.component';
 import { EditDecaisseComponent } from './edit-decaisse/edit-decaisse.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from '../auth.guard';
+import { PrintComponent } from './print/print.component';
 
 export const routes: Routes = [
     {path:'', component:LoginComponent},
@@ -14,4 +15,6 @@ export const routes: Routes = [
     {path:'editEncaisse/:id', component:EditEncaisseComponent, canActivate: [AuthGuard]},
     {path:'decaissement', component:DecaissementComponent, canActivate: [AuthGuard]},
     {path:'editDecaissement/:id', component:EditDecaisseComponent, canActivate: [AuthGuard]},
+    {path:'print', component:PrintComponent, canActivate: [AuthGuard]},
+    {path:'print/:id', component:PrintComponent, canActivate: [AuthGuard]},
 ];

@@ -132,3 +132,64 @@
     outline: none;
     background-color: rgb(56, 189, 149);  
   }
+
+.p {
+  margin-top: 40px;
+}
+
+
+#metal {
+    background-image: url("https://images.unsplash.com/photo-1612058237353-6213b412a1c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-size: contain;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation-name: metal;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    margin: 0px;
+    color: transparent;
+    font-size: 40px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 100px;
+}
+
+#glass {
+    background-image: url("https://plus.unsplash.com/premium_photo-1675526090845-a8b982cabae6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-size: contain;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation-name: glass;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    margin: 0px;
+    color: transparent;
+    font-size: 40px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#plastic {
+    background: url("https://images.unsplash.com/photo-1605707159327-f43132f89a5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80");
+    background-size: contain;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-align: center;
+    animation-name: metal;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    margin: 0px;
+    color: transparent;
+    font-size: 40px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+    text-transform: uppercase;
+    text-align: center;
+}

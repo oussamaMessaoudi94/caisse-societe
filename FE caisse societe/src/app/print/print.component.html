@@ -1,0 +1,115 @@
+
+
+<div class="container">
+    <a  onclick="window.print();"><i class="material-icons">print</i></a>
+    <div class="row">
+        <div class="span4">
+            <img src="http://webivorous.com/wp-content/uploads/2020/06/brand-logo-webivorous.png" class="img-rounded logo">
+        </div>
+        <div class="span4 well" >
+            <table class="invoice-head">
+                <tbody>
+                    <tr>
+                        <td class="pull-right"><strong>Invoice #</strong></td>
+                        <td>{{encaisseId._id}}</td>
+                    </tr>
+                    <tr>
+                        <td class="pull-right"><strong>Date</strong></td>
+                        <td>{{date.toLocaleDateString()}}</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span8">
+            <h2>Recu</h2>
+        </div>
+    </div>
+    <div class="row">
+          <div class="span8 well invoice-body">
+              <table class="table table-bordered">
+                <thead>
+                    <tr>
+                      <th>Name</th>
+                        <th>Description</th>
+                        <th>Modalité</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr id="form">
+                    <td id="form2">{{encaisseId.beneficier}}</td>
+                    <td  id="form2">{{encaisseId.objet}}</td>
+                    <td  id="form2">{{encaisseId.modalite}}</td>
+                  <td id="form2">{{encaisseId.montant}}</td>
+                    </tr>
+        <tr><td colspan="4"></td></tr>
+                </tbody>
+            </table>
+          </div>
+      </div>
+      <div class="row">
+          <div class="span8 well invoice-thank">
+              <h5 style="text-align:right; margin-top: -50px;">signature</h5>
+          </div>
+      </div>
+</div>
+<p style="margin-top: 40px;">-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+<div class="container" style="margin-top: 40px;">
+    <div class="row">
+        <div class="span4">
+            <img src="http://webivorous.com/wp-content/uploads/2020/06/brand-logo-webivorous.png" class="img-rounded logo">
+        </div>
+        <div class="span4 well" >
+            <table class="invoice-head">
+                <tbody>
+                    <tr>
+                        <td class="pull-right"><strong>Invoice #</strong></td>
+                        <td>2340</td>
+                    </tr>
+                    <tr>
+                        <td class="pull-right"><strong>Date</strong></td>
+                        <td>10-08-2013</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span8">
+            <h2>Recu</h2>
+        </div>
+    </div>
+    <div class="row">
+          <div class="span8 well invoice-body">
+              <table class="table table-bordered">
+                <thead>
+                    <tr>
+                      <th>Name</th>
+                        <th>Description</th>
+                        <th>Modalité</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr id="form">
+                    <td id="form2">{{encaisseId.beneficier}}</td>
+                    <td  id="form2">{{encaisseId.objet}}</td>
+                    <td  id="form2">{{encaisseId.modalite}}</td>
+                  <td id="form2">{{encaisseId.montant}}</td>
+                    </tr>
+        <tr><td colspan="4"></td></tr>
+                </tbody>
+            </table>
+          </div>
+      </div>
+      <div class="row">
+          <div class="span8 well invoice-thank">
+              <h5 style="text-align:right;">signature</h5>
+          </div>
+      </div>
+</div>
+

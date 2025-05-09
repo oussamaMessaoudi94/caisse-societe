@@ -86,6 +86,10 @@ this.encaisseService.getEncaisse().subscribe(
     this.router.navigate([`/editEncaisse/${id}`])
   }
 
+  printCaisse(id:any){
+    this.router.navigate([`/print/${id}`])
+  }
+
   deleteEncaisse(id:any){
     this.encaisseService.deleteEncaisse(id).subscribe(
       (data)=>{
